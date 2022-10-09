@@ -1,0 +1,82 @@
+.restaurant-item-container {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: start;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    box-shadow: 5px 5px lightgray;
+    
+    align-items: flex-start;
+}
+
+.restaurant-item-img-container {
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.restaurant-item-img {
+    width: 200px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.restaurant-item-info {
+    flex: 2;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.restaurant-item-name {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.restaurant-item-rating {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.restaurant-item-location {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.restaurant-item-category {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.restaurant-item-category-chip {
+    font-size: 12px;
+    color: darkolivegreen;
+    background-color: lightgray;
+    padding: 3px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.restaurant-item-telephone {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.telephone-icon {
+    margin-right: 10px;
+}
+
+.restaurant-item-status {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
