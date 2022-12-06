@@ -19,6 +19,7 @@ const SearchBar = ({ setRestaurants, setLat, setLng }) => {
                 let long = position.coords.longitude;
                 setLat(lat);
                 setLng(long);
+                console.log("get current position!")
                 axios.get(`/location/current?long=${long}&lat=${lat}`
                 ).then(res => {
                     setAddress(res.data.results[0].formatted_address)

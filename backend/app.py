@@ -1,6 +1,7 @@
 from urllib import response
 from flask import Flask, request
 import requests
+from cache_utils import *
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ DEFAULT_LOCATION = 'Ann Arbor, MI'
 SEARCH_LIMIT = 3
 
 
-@app.route('/')
+@app.route('/default')
 def hello_world():
     url_params = {
         'term': DEFAULT_TERM.replace(' ', '+'),
@@ -32,18 +33,27 @@ def hello_world():
 
 @app.route('/restaurants')
 def searchRestaurants():
-    url_params = {
-        'term': request.args.get('term'),
-        'location': request.args.get('location')
-    }
-    response = requests.request('GET', YELP_API_HOST + YELP_SEARCH_PATH, headers={
-        'Authorization': 'Bearer %s' % YELP_API_KEY,
-    },  params=url_params)
-    return response.json()
+    term = request.args.get('term')
+    location = request.args.get('location')
+
+    filename = term + "@" + location + ".json"
+    cache_data = open_cache(filename)
+    if len(cache_data) == 0:
+        url_params = {
+            'term': term,
+            'location': location
+        }
+
+        response = requests.request('GET', YELP_API_HOST + YELP_SEARCH_PATH, headers={
+            'Authorization': 'Bearer %s' % YELP_API_KEY,
+        }, params=url_params)
+        save_to_cache(response.json(), filename)
+        return response.json()
+    else:
+        return cache_data
+
 
 # transform geolocation to address
-
-
 @app.route('/location/current')
 def getCurrentLocation():
     url_parameter = {
@@ -61,6 +71,7 @@ def getGeoLocation():
         'address': request.args.get('address'),
         'key': GOOGLE_MAP_API_KEY
     }
+
     response = requests.request(
         'GET', GOOGLE_MAP_API_HOST + '/geocode/json', params=url_parameter)
     return response.json()
