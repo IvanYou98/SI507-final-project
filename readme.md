@@ -28,12 +28,29 @@
 
 ## 3. How to run
 <ul>
+
+<li>
+    Step 0: Prerequisites: Node.js, Flask
+</li>
+
 <li>
     Step 1: Clone this repository to your local
 </li>
 <li>
-```python
-print('Hello World!')
-```
+    Step 2: Start the backend server by running the following command
 </li>
+
+```{shell}
+flask run
+```
+
+<li>
+    Step 3: Start the frontend server by running the following command
+</li>
+
+```{shell}
+npm install
+npm start
+```
+
 </ul>
