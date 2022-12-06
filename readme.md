@@ -1,8 +1,21 @@
 # Dinner Table: A Search Engine for Restaurants
 
-## 1. Preview
+## 1. Intro
+<p>
+After you start frontend and backend server, your <a href="localhost:3000">localhost:3000</a>  should look
+like this.
+</p>
 
 <img src="preview.png" alt="not found">
+
+<p>
+You can enter some category keyword in the first input field, some location
+keyword in the second input field (You can also click on the navigation icon
+to autofill your current location). After that, you can click the 
+search button, then you will find a list of restaurants information and the google map 
+will also zoom and center to the location automatically.
+</p>
+
 
 ## 2. Tech Stack
 
