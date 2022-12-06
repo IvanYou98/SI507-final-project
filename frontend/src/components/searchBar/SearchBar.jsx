@@ -5,6 +5,7 @@ import axios from 'axios'
 
 import './SearchBar.css'
 import { useState } from 'react';
+import {Button} from "@mui/material";
 const SearchBar = ({ setRestaurants, setLat, setLng }) => {
     const [address, setAddress] = useState("");
     const [term, setTerm] = useState("")
@@ -50,7 +51,7 @@ const SearchBar = ({ setRestaurants, setLat, setLng }) => {
             <div className='search-bar-container'>
                 <input type="text"
                     className='search-bar-term-field'
-                    placeholder='Search for resturants...'
+                    placeholder='Search for restaurants...'
                     onChange={e => setTerm(e.target.value)}
                     onKeyUp={e => e.keyCode === 13 && searchRestaurants()} />
                 <input type="text" className='search-bar-location-field' placeholder='Location' value={address} onChange={e => setAddress(e.target.value)} />
@@ -59,6 +60,9 @@ const SearchBar = ({ setRestaurants, setLat, setLng }) => {
                         isLocating ? <CircularProgress className='search-bar-location-progress-bar' size={20} /> : <LocationOnIcon onClick={getCurrentLocation} />
                     }
                 </div>
+                <Button variant="outlined" color="inherit" onClick={searchRestaurants}>
+                    Search
+                </Button>
             </div>
             <div className='search-bar-bottom-divider'></div>
         </Fragment>
