@@ -28,15 +28,12 @@
 
 ## 3. How to run
 <ul>
-    <li>
-        Step 1: Clone this repository to your local
-    </li>
-    <li>
-        Step 2: Open your terminal, cd to the backend folder, run:
-
-        ```script
-            flask run
-        ```
-
-    </li>
+<li>
+    Step 1: Clone this repository to your local
+</li>
+<li>
+```python
+print('Hello World!')
+```
+</li>
 </ul>
