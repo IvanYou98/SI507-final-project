@@ -4,12 +4,14 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 
 const StartRating = ({ count, size }) => {
     const startArr = [];
-    for (let i = 0; i < Math.trunc(count); i++) {
+    for (let i = 0; i < Math.floor(count); i++) {
         startArr.push(1);
     }
-    if (Math.trunc(count) !== count) {
+    if (Math.floor(count) < count) {
         startArr.push(0.5)
     }
+    console.log(count)
+    console.log(startArr)
 
     return (
         <div>

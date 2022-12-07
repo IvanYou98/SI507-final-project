@@ -2,6 +2,7 @@ from urllib import response
 from flask import Flask, request
 import requests
 from cache_utils import *
+from heap_sort import sort
 
 app = Flask(__name__)
 
@@ -47,8 +48,10 @@ def searchRestaurants():
         response = requests.request('GET', YELP_API_HOST + YELP_SEARCH_PATH, headers={
             'Authorization': 'Bearer %s' % YELP_API_KEY,
         }, params=url_params)
-        save_to_cache(response.json(), filename)
-        return response.json()
+        data = response.json()
+        sort(data['businesses'])
+        save_to_cache(data, filename)
+        return data
     else:
         return cache_data
 
