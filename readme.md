@@ -2,7 +2,7 @@
 
 ## 1. Intro
 <p>
-After you start frontend and backend server, your <a href="localhost:3000">localhost:3000</a>  should look
+After you start frontend and backend server, your <a href="http://localhost:3000/">localhost:3000</a>  should look
 like this.
 </p>
 
